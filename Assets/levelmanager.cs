@@ -1,12 +1,13 @@
 using UnityEngine;
 
+
 public class levelmanager : MonoBehaviour
 {
-    private GameObject player;
+    public GameObject player;
     public GameObject starterLevel;
     public GameObject otherLevel1;
     public GameObject otherLevel2;
-    private GameObject currentLevel;
+   public GameObject currentLevel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

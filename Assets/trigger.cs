@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class spawnpoiunt : MonoBehaviour
+public class trigger : MonoBehaviour
 {
     private GameObject player;
-    private levelmanager manager;
+    public levelmanager manager;
     public GameObject Leveltoactivate;
     public Transform spawn;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +16,11 @@ public class spawnpoiunt : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        manager.LoadLevel(Leveltoactivate, spawn); 
+        if (collision.CompareTag("Player"))
+        {
+            manager.LoadLevel(Leveltoactivate, spawn);
+            Debug.Log("Entered");
+        }
     }
     // Update is called once per frame
     void Update()
