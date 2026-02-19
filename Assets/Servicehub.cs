@@ -8,6 +8,8 @@ public class Servicehub : MonoBehaviour
 
     public playerinputs player;
     public levelmanager levelmanager;
+    public UIManager uiManager;
+    public GameStateManager gameStateManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
