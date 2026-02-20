@@ -91,6 +91,11 @@ public class GameStateManager : MonoBehaviour
         SetState(previousstate);
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     // Update is called once per frame
     void Update()
     {
