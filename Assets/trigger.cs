@@ -6,11 +6,12 @@ public class trigger : MonoBehaviour
     public levelmanager manager;
     public GameObject Leveltoactivate;
     public Transform spawn;
+    public Servicehub servicehub;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = Servicehub.Instance.player.gameObject;
-        manager = Servicehub.Instance.levelmanager;
+        player = servicehub.player.gameObject;
+        manager = servicehub.levelmanager;
         
     }
 

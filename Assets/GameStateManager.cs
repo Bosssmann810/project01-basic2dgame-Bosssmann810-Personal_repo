@@ -16,10 +16,11 @@ public class GameStateManager : MonoBehaviour
     public UIManager uimanager;
     public GameState currentstate;
     public GameState previousstate;
+    public Servicehub servicehub;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        uimanager = Servicehub.Instance.uiManager;
+        uimanager = servicehub.uiManager;
         if (uimanager != null) { Debug.Log("NO UI MANAGER"); }
         SetState(GameState.init);
 

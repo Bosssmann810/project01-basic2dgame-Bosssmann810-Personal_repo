@@ -8,11 +8,12 @@ public class levelmanager : MonoBehaviour
     public GameObject otherLevel1;
     public GameObject otherLevel2;
    public GameObject currentLevel;
+    public Servicehub servicehub;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = Servicehub.Instance.player.gameObject;
+        player = servicehub.player.gameObject;
         starterLevel.SetActive(true);
         otherLevel1.SetActive(false);
         otherLevel2.SetActive(false);

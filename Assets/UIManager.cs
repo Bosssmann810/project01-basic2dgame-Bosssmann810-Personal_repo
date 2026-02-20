@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _settingsUI;
     [SerializeField] private GameObject _creditsUI;
 
+
     public void DisableAllUI()
     {
         _gameplayUI.SetActive(false);
