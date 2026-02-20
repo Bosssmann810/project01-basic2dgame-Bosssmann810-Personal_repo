@@ -21,7 +21,7 @@ public class GameStateManager : MonoBehaviour
     private void Start()
     {
         uimanager = servicehub.uiManager;
-        if (uimanager != null) { Debug.Log("NO UI MANAGER"); }
+        if (uimanager == null) { Debug.Log("NO UI MANAGER"); }
         SetState(GameState.init);
 
         
@@ -43,7 +43,7 @@ public class GameStateManager : MonoBehaviour
                 break;
             case GameState.MainMenu:
                 uimanager.OpenMainMenu();
-                Time.timeScale = 0;
+                
                 break;
 
             case GameState.Gameplay:

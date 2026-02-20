@@ -45,6 +45,6 @@ public class UIManager : MonoBehaviour
     public void OpenMainMenu()
     {
         DisableAllUI();
-        _creditsUI.SetActive(true);
+        _mainMenuUI.SetActive(true);
     }
 }

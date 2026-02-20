@@ -10,6 +10,7 @@ public class playerinputs : MonoBehaviour
     public float speed;
     public GameObject normal;
     public GameObject upsideDown;
+    public Servicehub servicehub;
 
     private void Start()
     {
@@ -40,4 +41,11 @@ public class playerinputs : MonoBehaviour
             upsideDown.SetActive(false);
         }
     }
+    public void OnPause()
+    {
+        Debug.Log("pressed escape");
+        servicehub.gameStateManager.TogglePause();
+
+    }
 }
+
