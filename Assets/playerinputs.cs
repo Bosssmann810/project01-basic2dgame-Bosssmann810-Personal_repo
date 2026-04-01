@@ -12,6 +12,7 @@ public class playerinputs : MonoBehaviour
     public GameObject normal;
     public GameObject upsideDown;
     public Servicehub servicehub;
+     bool indialouge;
 
     [SerializeField] private Animator playerAnimController;
 
@@ -23,6 +24,7 @@ public class playerinputs : MonoBehaviour
 
     private void Start()
     {
+        indialouge = false;
         rb = GetComponent<Rigidbody2D>();
         upsideDown.SetActive(false);
         normal.SetActive(true);
@@ -35,11 +37,19 @@ public class playerinputs : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(indialouge == true)
+        {
+            return;
+        }
         rb.MovePosition(rb.position + inputMovement * speed * Time.fixedDeltaTime);
 
     }
     public void Update()
     {
+        if(indialouge == true)
+        {
+            return;
+        }
         HandleAnimation();
     }
     public void OnFlip(InputAction.CallbackContext context)
@@ -64,6 +74,7 @@ public class playerinputs : MonoBehaviour
     }
     public void HandleAnimation()
     {
+       
         if (inputMovement != Vector2.zero )
         {
             playerAnimController.SetBool(IsMovingHash, true);
@@ -78,5 +89,13 @@ public class playerinputs : MonoBehaviour
             playerAnimController.SetFloat(OldXHash, oldMovement.x);
         }
     } 
+    public void EnterDialouge()
+    {
+        indialouge = true;
+    }
+    public void ExitDialouge()
+    {
+        indialouge = false;
+    }
 }
 
