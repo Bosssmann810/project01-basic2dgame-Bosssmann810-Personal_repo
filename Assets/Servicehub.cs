@@ -1,6 +1,5 @@
 using UnityEngine;
-
-public class Servicehub : MonoBehaviour
+ public class Servicehub : MonoBehaviour
 {
     public static Servicehub Instance { get; private set; }
 

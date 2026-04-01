@@ -16,7 +16,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact",
+                    "name": "flip",
                     "type": "Button",
                     "id": "8072a58c-0538-4fc5-b3b3-9d36a6dd4df9",
                     "expectedControlType": "",
@@ -28,6 +28,15 @@
                     "name": "pause",
                     "type": "Button",
                     "id": "7791fbcb-5bf3-4dee-a0f7-e7422d319eb1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "6096b4c4-2a67-4a04-b531-35430550a9c9",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -97,7 +106,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "flip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -109,6 +118,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05d6babc-fae8-4bb8-a1d8-cf693505b255",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
