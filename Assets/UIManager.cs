@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -7,6 +8,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _mainMenuUI;
     [SerializeField] private GameObject _settingsUI;
     [SerializeField] private GameObject _creditsUI;
+    [SerializeField] private GameObject _dialogeBox;
+    public TMP_Text _text;
 
 
     public void DisableAllUI()
@@ -18,6 +21,18 @@ public class UIManager : MonoBehaviour
         _creditsUI.SetActive(false); 
     }
 
+    public void ShowDialouge()
+    {
+        _dialogeBox.SetActive(true);
+    }
+    public void HideDialouge()
+    {
+        _dialogeBox.SetActive(false);
+    }
+    public void Changetext(string text)
+    {
+        _text.text = text;
+    }
     public void OpenSettings()
     {
         DisableAllUI();
