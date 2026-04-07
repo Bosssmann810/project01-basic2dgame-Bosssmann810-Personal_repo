@@ -39,6 +39,9 @@ public class playerinputs : MonoBehaviour
     {
         if(indialouge == true)
         {
+            playerAnimController.SetBool(IsMovingHash, false);
+            playerAnimController.SetFloat(OldYHash, oldMovement.y);
+            playerAnimController.SetFloat(OldXHash, oldMovement.x);
             return;
         }
         rb.MovePosition(rb.position + inputMovement * speed * Time.fixedDeltaTime);

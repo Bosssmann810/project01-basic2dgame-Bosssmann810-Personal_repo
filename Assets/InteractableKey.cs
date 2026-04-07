@@ -8,12 +8,28 @@ public class InteractableKey : MonoBehaviour, IInteractable
     {
         //throw new System.NotImplementedException();
     }
-
+    public DialougeManager dialougeManager;
+    bool inDialouge = false;
+    public Dialouge dialouge;
     public void Interact()
     {
+        if (inDialouge == true)
+        {
+            inDialouge = dialougeManager.DialougEnded();
+            if(inDialouge == false)
+            {
+                door.FoundKey();
+                Destroy(this.gameObject);
+            }
+            dialougeManager.DisplayNextText();
+            return;
+        }
+        inDialouge = true;
+        dialougeManager.StartDialouge(dialouge);
         Debug.Log("You found a key");
-        door.FoundKey();
-        Destroy(this.gameObject);
+
+        
+
     }
 
     public void Unfocused()

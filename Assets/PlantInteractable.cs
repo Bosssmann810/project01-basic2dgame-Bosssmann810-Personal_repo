@@ -3,21 +3,43 @@ using UnityEngine.Rendering;
 
 public class PlantInteractable : MonoBehaviour, IInteractable
 {
-    void IInteractable.Focused()
+    public DialougeManager dialougeManager;
+    bool inDialouge = false;
+    public Dialouge dialouge;
+    public SkullyDiolouge skully;
+    bool TalkedTo = false;
+    public Dialouge repeatedInteractionDialouge;
+    public void Focused()
     {
         //throw new System.NotImplementedException();
     }
 
-    void IInteractable.Interact()
+    public void Interact()
     {
-        Debug.Log("you watered the plant... it be a real shame if the quest wasnt implamented yet");
-        Debug.Log("cough");
-        //advance skullys dialouge here...
+        if (inDialouge == true)
+        {
+            inDialouge = dialougeManager.DialougEnded();
+            dialougeManager.DisplayNextText();
+            return;
+        }
+        inDialouge = true;
+        if (TalkedTo == false)
+        {
+            dialougeManager.StartDialouge(dialouge);
+            skully.CompleteQuest();
+            TalkedTo = true;
+            return;
+        }
+        if(TalkedTo = true)
+        {
+            dialougeManager.StartDialouge(repeatedInteractionDialouge);
+            return;
+        }
+        
+
     }
 
-
-
-    void IInteractable.Unfocused()
+    public void Unfocused()
     {
         //throw new System.NotImplementedException();
     }

@@ -5,6 +5,11 @@ public class LockedDoor : MonoBehaviour, IInteractable
     private bool hasKey;
     public UIManager uIManager;
     public GameObject door;
+
+    public DialougeManager dialougeManager;
+    bool inDialouge = false;
+    public Dialouge lockedDialouge;
+    public Dialouge unlockedDialouge;
     public void Focused()
     {
         
@@ -12,15 +17,28 @@ public class LockedDoor : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if(hasKey == false)
+        if (inDialouge == true)
         {
-            Debug.Log("It's locked. You'll need to find the key");
+            inDialouge = dialougeManager.DialougEnded();
+            if(inDialouge == false && hasKey == true)
+            {
+                door.SetActive(false);
+            }
+            dialougeManager.DisplayNextText();
+            return;
         }
+        inDialouge = true;
         if(hasKey == true)
         {
-            Debug.Log("You unlocked the door");
-            door.SetActive(false);
+            dialougeManager.StartDialouge(unlockedDialouge);
+            
         }
+        if(hasKey == false)
+        {
+            dialougeManager.StartDialouge(lockedDialouge);
+        }
+     
+
 
     }
     
