@@ -14,6 +14,7 @@ public class SkullyDiolouge : MonoBehaviour, IInteractable
     public QuestManager questManager;
     public Quest quest;
     bool questFinished = false;
+
     public void Focused()
     {
         //throw new System.NotImplementedException();

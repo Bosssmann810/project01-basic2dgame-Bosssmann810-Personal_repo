@@ -1,3 +1,4 @@
+using System.Data.SqlTypes;
 using UnityEngine;
 
 public class ExitSkull : MonoBehaviour, IInteractable
@@ -12,6 +13,8 @@ public class ExitSkull : MonoBehaviour, IInteractable
     public bool questComplete = false;
     public QuestManager questManager;
     bool questFinished = false;
+    public UIManager uimanager;
+    bool alreadyComplete = false;
     public void Focused()
     {
         //throw new System.NotImplementedException();
@@ -60,10 +63,15 @@ public class ExitSkull : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-        if (questManager.TotalCompleted() == 4)
-        {
-            CompleteQuest();
-        }
+   
+            if (questManager.TotalCompleted() >= 5)
+            {
+                
+                alreadyComplete = true;
+                uimanager.UpdateQuestText("All Quests Complete");
+                CompleteQuest();
+            }
+        
     }
 
     public void Unfocused()

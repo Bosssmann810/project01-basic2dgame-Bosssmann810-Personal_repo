@@ -7,6 +7,7 @@ public class QuestManager : MonoBehaviour
     public UIManager uIManager;
     public Quest currentquest = new Quest();
     bool inquest;
+    [SerializeField]
     int questsComplete;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
