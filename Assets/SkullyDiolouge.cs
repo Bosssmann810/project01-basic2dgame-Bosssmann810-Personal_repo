@@ -19,7 +19,10 @@ public class SkullyDiolouge : MonoBehaviour, IInteractable
     {
         //throw new System.NotImplementedException();
     }
-
+    public bool GetFinishedStatus()
+    {
+        return questFinished;
+    }
     public void Interact()
     {
         if (inDialouge == true)
