@@ -1,14 +1,16 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class PlantInteractable : MonoBehaviour, IInteractable
+public class QuestItemInteractable : MonoBehaviour, IInteractable
 {
     public DialougeManager dialougeManager;
     bool inDialouge = false;
     public Dialouge dialouge;
-    public SkullyDiolouge skully;
+    public SkullyDiolouge questGiver;
     bool TalkedTo = false;
     public Dialouge repeatedInteractionDialouge;
+    public QuestManager questManager;
+
     public void Focused()
     {
         //throw new System.NotImplementedException();
@@ -23,14 +25,20 @@ public class PlantInteractable : MonoBehaviour, IInteractable
             return;
         }
         inDialouge = true;
-        if (TalkedTo == false)
+        if (questManager.GetCurrentQuest() == questGiver.quest)
         {
+            if(TalkedTo == true)
+            {
+                dialougeManager.StartDialouge(repeatedInteractionDialouge);
+                return;
+            }
             dialougeManager.StartDialouge(dialouge);
-            skully.CompleteQuest();
+            questManager.AdvanceQuest();
+            questGiver.CompleteQuest();
             TalkedTo = true;
             return;
         }
-        if(TalkedTo = true)
+        if(questManager.GetCurrentQuest() != questGiver.quest)
         {
             dialougeManager.StartDialouge(repeatedInteractionDialouge);
             return;

@@ -5,6 +5,7 @@ public class dialougeinteractable : MonoBehaviour, IInteractable
     public DialougeManager dialougeManager;
     bool inDialouge = false;
     public Dialouge dialouge;
+    QuestManager questmanager;
     public void Focused()
     {
         //throw new System.NotImplementedException();

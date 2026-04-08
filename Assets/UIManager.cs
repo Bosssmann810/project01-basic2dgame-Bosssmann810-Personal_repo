@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _creditsUI;
     [SerializeField] private GameObject _dialogeBox;
     public TMP_Text _text;
-
+    public TMP_Text _questText; 
 
     public void DisableAllUI()
     {
@@ -61,5 +61,9 @@ public class UIManager : MonoBehaviour
     {
         DisableAllUI();
         _mainMenuUI.SetActive(true);
+    }
+    public void UpdateQuestText(string text)
+    {
+        _questText.text = $"Quest: {text}";
     }
 }

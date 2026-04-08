@@ -271,7 +271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!156049354 &19125163
 Grid:
   m_ObjectHideFlags: 0
@@ -297,8 +297,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1475539994}
   - {fileID: 1534090189}
   - {fileID: 795202351}
+  - {fileID: 1540120368}
   - {fileID: 1629820491}
   - {fileID: 1772449547}
   - {fileID: 201359702}
@@ -307,6 +309,7 @@ Transform:
   - {fileID: 1798102430}
   - {fileID: 1464690559}
   - {fileID: 1437873831}
+  - {fileID: 2083756093}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &20904007
@@ -806,8 +809,56 @@ Transform:
   - {fileID: 1197084198}
   - {fileID: 785224890}
   - {fileID: 285040090}
+  - {fileID: 185016941}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &185016940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185016941}
+  - component: {fileID: 185016942}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &185016941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185016940}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 180735260}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &185016942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185016940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6446748313d6a04fba304c94b9f90a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uIManager: {fileID: 1197084199}
+  currentquest:
+    tasks: []
 --- !u!1 &192626602
 GameObject:
   m_ObjectHideFlags: 0
@@ -51273,6 +51324,7 @@ GameObject:
   - component: {fileID: 254484496}
   - component: {fileID: 254484495}
   - component: {fileID: 254484494}
+  - component: {fileID: 254484497}
   m_Layer: 0
   m_Name: Rattles
   m_TagString: Untagged
@@ -51326,8 +51378,22 @@ MonoBehaviour:
     - thanks pal I owe you one
     - you saved this skull from crippleing boredome
     - have a good day pal, your a hero
+  busyDialouge:
+    sentances:
+    - Hey pal, oh you seem busy
+    - nevermind
+  postQuestDialouge:
+    sentances:
+    - now all I need to do is open the book...
+    - ...
+    - I did not think this through
   alreadyTalkedTo: 0
   questComplete: 0
+  questManager: {fileID: 185016942}
+  quest:
+    tasks:
+    - Find a book for Rattles
+    - Return to Rattles
 --- !u!61 &254484495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51429,6 +51495,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &254484497
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254484492}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.25
 --- !u!1 &285040089
 GameObject:
   m_ObjectHideFlags: 0
@@ -51514,7 +51616,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 10, y: -10}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &304777178
 MonoBehaviour:
@@ -51536,7 +51638,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0'
+  m_text: 'Quest: ???'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -52868,7 +52970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &558878128
 Grid:
   m_ObjectHideFlags: 0
@@ -56987,13 +57089,13 @@ MonoBehaviour:
   dialouge:
     sentances:
     - There are several books here
-    - you decide to take one
-    - but you can't read
-  skully: {fileID: 254484494}
+    - You decide to take one for the skull
+  questGiver: {fileID: 254484494}
   repeatedInteractionDialouge:
     sentances:
     - there are several books here
     - but none of them catch your interest
+  questManager: {fileID: 185016942}
 --- !u!58 &667527695
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -60178,6 +60280,26 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 33
+      m_TileSpriteIndex: 7
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 1, y: 6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 34
+      m_TileSpriteIndex: 9
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 19, y: 6, z: 0}
     second:
       serializedVersion: 2
@@ -60203,6 +60325,26 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 14
       m_TileSpriteIndex: 14
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 7, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 32
+      m_TileSpriteIndex: 1
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 1, y: 7, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 41
+      m_TileSpriteIndex: 41
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -61614,12 +61756,12 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 08641b94266b8124c825bd66200b5236, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 5ec52f2fb33733a42b7bf0fcd017a8bd, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: a2190397c7406744d8e7b5996d47e174, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 40561e1cd2cabdc41821f6999ab45ece, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 8e8f7b55e5b34dd478e7a0006699bb86, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: a6323a1c2dc7dc340b66b4db95a1cec5, type: 2}
   - m_RefCount: 1
@@ -61632,11 +61774,13 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: f25190d4008ddbb4e967c9bad736973f, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 02db6a922ea75db49b69fa7096d1265b, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: bc691c081cb4d8b4f93465a89b7f784c, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 96
     m_Data: {fileID: 1767179144, guid: 577888f9a093e794584bfdcecb0bbc82, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1639543231, guid: 57384e3e200e7894ab6388c334a13241, type: 3}
   - m_RefCount: 59
     m_Data: {fileID: -2076476215, guid: 577888f9a093e794584bfdcecb0bbc82, type: 3}
   - m_RefCount: 8
@@ -61647,12 +61791,12 @@ Tilemap:
     m_Data: {fileID: 746716836, guid: 577888f9a093e794584bfdcecb0bbc82, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: -2047565695, guid: 577888f9a093e794584bfdcecb0bbc82, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -377217294, guid: 57384e3e200e7894ab6388c334a13241, type: 3}
   - m_RefCount: 18
     m_Data: {fileID: 1687147053, guid: 577888f9a093e794584bfdcecb0bbc82, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1418555615, guid: 57384e3e200e7894ab6388c334a13241, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 9353711, guid: 577888f9a093e794584bfdcecb0bbc82, type: 3}
   - m_RefCount: 3
@@ -61715,8 +61859,10 @@ Tilemap:
     m_Data: {fileID: 153739544, guid: 57384e3e200e7894ab6388c334a13241, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1714420278, guid: 57384e3e200e7894ab6388c334a13241, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 634736354, guid: 57384e3e200e7894ab6388c334a13241, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 304
+  - m_RefCount: 308
     m_Data:
       e00: 1
       e01: 0
@@ -61789,7 +61935,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 408
+  - m_RefCount: 412
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -62062,7 +62208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &975738420
 Grid:
   m_ObjectHideFlags: 0
@@ -67647,6 +67793,7 @@ MonoBehaviour:
   _creditsUI: {fileID: 1309440110}
   _dialogeBox: {fileID: 1229006378}
   _text: {fileID: 1229006379}
+  _questText: {fileID: 304777178}
 --- !u!1 &1229006378
 GameObject:
   m_ObjectHideFlags: 0
@@ -70351,6 +70498,172 @@ MonoBehaviour:
   dialouge:
     sentances:
     - You found a key
+--- !u!1 &1475539993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1475539994}
+  - component: {fileID: 1475539997}
+  - component: {fileID: 1475539996}
+  - component: {fileID: 1475539998}
+  m_Layer: 0
+  m_Name: Calcie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1475539994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475539993}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.307, y: 2.21, z: -3.8344057}
+  m_LocalScale: {x: 0.94126, y: 0.94126, z: 0.94126}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 19125164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1475539996
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475539993}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.55}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.83, y: 1.85}
+  m_EdgeRadius: 0
+--- !u!212 &1475539997
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475539993}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 6d6b7dfad36464a4b8079e970824b859, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 4, y: 4}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1475539998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475539993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a140cbf1618894380d116bbfb9576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialougeManager: {fileID: 748151553}
+  firstDialouge:
+    sentances:
+    - Howdy. You look lost.
+    - Tell you what if you help me out, I'll show you the exit
+    - my friends are all over this place and need help. if you help them all I'll
+      help you
+  secondDialouge:
+    sentances:
+    - Still working on helping my friends
+  questCompleteDialouge:
+    sentances:
+    - So the hero returns
+    - well a deals a deal, talk to me again and I'll show you the way out
+  postQuestDialouge:
+    sentances: []
+  alreadyTalkedTo: 0
+  questComplete: 0
+  questManager: {fileID: 185016942}
 --- !u!1 &1534090188
 GameObject:
   m_ObjectHideFlags: 0
@@ -148962,6 +149275,163 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1540120367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1540120368}
+  - component: {fileID: 1540120370}
+  - component: {fileID: 1540120369}
+  m_Layer: 0
+  m_Name: potion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1540120368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540120367}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 19125164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!483693784 &1540120369
+TilemapRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540120367}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 24
+  m_ChunkSize: {x: 32, y: 32, z: 32}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_MaxChunkCount: 16
+  m_MaxFrameAge: 16
+  m_SortOrder: 0
+  m_Mode: 0
+  m_DetectChunkCullingBounds: 0
+  m_MaskInteraction: 0
+--- !u!1839735485 &1540120370
+Tilemap:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540120367}
+  m_Enabled: 1
+  m_Tiles:
+  - first: {x: 54, y: -54, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  m_AnimatedTiles: {}
+  m_TileAssetArray:
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 27d6c1f05f8604a43bf6c5473a5f6cc6, type: 2}
+  m_TileSpriteArray:
+  - m_RefCount: 1
+    m_Data: {fileID: -870509207, guid: 57384e3e200e7894ab6388c334a13241, type: 3}
+  m_TileMatrixArray:
+  - m_RefCount: 1
+    m_Data:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  m_TileColorArray:
+  - m_RefCount: 1
+    m_Data: {r: 1, g: 1, b: 1, a: 1}
+  m_TileObjectToInstantiateArray: []
+  m_AnimationFrameRate: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Origin: {x: 0, y: -54, z: 0}
+  m_Size: {x: 56, y: 54, z: 1}
+  m_TileAnchor: {x: 1.05, y: -0.26, z: -26.54}
+  m_TileOrientation: 0
+  m_TileOrientationMatrix:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
 --- !u!1 &1588646141
 GameObject:
   m_ObjectHideFlags: 0
@@ -150064,8 +150534,20 @@ MonoBehaviour:
     - thanks a bunch pal
     - I would give you a reward... but
     - well im just a head at the moment
+  busyDialouge:
+    sentances:
+    - You look busy come back later
+  postQuestDialouge:
+    sentances:
+    - Thanks again pal
+    - I owe you one
   alreadyTalkedTo: 0
   questComplete: 0
+  questManager: {fileID: 185016942}
+  quest:
+    tasks:
+    - Water the plant
+    - Return to Skully
 --- !u!1 &1985510931
 GameObject:
   m_ObjectHideFlags: 0
@@ -150337,6 +150819,184 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079860242}
   m_CullTransparentMesh: 1
+--- !u!1 &2083756092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083756093}
+  - component: {fileID: 2083756096}
+  - component: {fileID: 2083756095}
+  - component: {fileID: 2083756094}
+  m_Layer: 0
+  m_Name: Tendanny
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2083756093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083756092}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.95, y: -16.49, z: -3.8344057}
+  m_LocalScale: {x: 0.94126, y: 0.94126, z: 0.94126}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 19125164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2083756094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083756092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c2f961d4fb4154d938f6911664de4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialougeManager: {fileID: 748151553}
+  firstDialouge:
+    sentances:
+    - Finally someone tall.
+    - I need to water my plant in the room on the right
+    - if you could water it for me I'd be greatful
+  secondDialouge:
+    sentances:
+    - The room is on the right of the main hall
+    - the plant should be in the back
+    - thanks in advance pal
+  questCompleteDialouge:
+    sentances:
+    - did you water the plant?
+    - thanks a bunch pal
+    - I would give you a reward... but
+    - well im just a head at the moment
+  busyDialouge:
+    sentances:
+    - You look busy come back later
+  postQuestDialouge:
+    sentances:
+    - Thanks again pal
+    - I owe you one
+  alreadyTalkedTo: 0
+  questComplete: 0
+  questManager: {fileID: 185016942}
+  quest:
+    tasks:
+    - Water the plant
+    - Return to Skully
+--- !u!61 &2083756095
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083756092}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.35}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.87, y: 1.2}
+  m_EdgeRadius: 0
+--- !u!212 &2083756096
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083756092}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 6d6b7dfad36464a4b8079e970824b859, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 4, y: 4}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2102626812
 GameObject:
   m_ObjectHideFlags: 0
@@ -150388,10 +151048,11 @@ MonoBehaviour:
     - A plant
     - You decided to water it
     - it seems happier
-  skully: {fileID: 1956862344}
+  questGiver: {fileID: 1956862344}
   repeatedInteractionDialouge:
     sentances:
     - it's a plant
+  questManager: {fileID: 185016942}
 --- !u!58 &2102626815
 CircleCollider2D:
   m_ObjectHideFlags: 0
