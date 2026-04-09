@@ -9,16 +9,22 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _settingsUI;
     [SerializeField] private GameObject _creditsUI;
     [SerializeField] private GameObject _dialogeBox;
+    [SerializeField] private GameObject _winUI;
     public TMP_Text _text;
     public TMP_Text _questText; 
 
     public void DisableAllUI()
     {
+        _winUI.SetActive(false);
         _gameplayUI.SetActive(false);
         _pausedUI.SetActive(false);
         _mainMenuUI.SetActive(false);
         _settingsUI.SetActive(false);
         _creditsUI.SetActive(false); 
+    }
+    public void WinGame()
+    {
+        _winUI.SetActive(true);
     }
 
     public void ShowDialouge()

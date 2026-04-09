@@ -31,7 +31,7 @@ public class ExitSkull : MonoBehaviour, IInteractable
         inDialouge = true;
         if (questFinished == true)
         {
-            dialougeManager.StartDialouge(postQuestDialouge);
+            uimanager.WinGame();
             return;
         }
         if (alreadyTalkedTo == false)
